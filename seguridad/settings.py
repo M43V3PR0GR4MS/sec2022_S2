@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from . info import *
+import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,9 +32,9 @@ EMAIL_PORT = EMAIL_PORT
 SECRET_KEY = 'django-insecure-)1a#p9!h)2xipr_x9+3sp+2&h$g5m9&le%cnr%ds5%-t8&od1o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','ventasegura.herokuapp.com']
+ALLOWED_HOSTS = ['ventasegura.herokuapp.com']
 
 
 # Application definition
@@ -81,13 +83,23 @@ WSGI_APPLICATION = 'seguridad.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
 
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'd988japrq3fqei',
+            'USER': 'mwmcwslhvvslrv',
+            'PASSWORD': '9198b907c00f6f6ba8cecf657ec5ff485e146123ff2a1a9d98c90842ade8e083',
+            'HOST':'ec2-44-195-132-31.compute-1.amazonaws.com',
+            'PORT': '5432',
+        }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -123,7 +135,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+#STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
