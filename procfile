@@ -1,2 +1,1 @@
-release: python manage.py migrate
 web: gunicorn sec2022_S2.wsgi --log-file -
