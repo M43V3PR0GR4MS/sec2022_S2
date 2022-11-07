@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{%url 'home'%}">HOME</a>
+      <a class="navbar-brand" href="/signup">REGISTRATE</a>
+      <a class="navbar-brand" href="/signin">INGRESA</a>
+      {% if user.is_authenticated %}
+      <a class="navbar-brand" href="/ecomm">COMPRA</a>
+      {% else %}
+      {% endif %}
+    </div>
+  </nav>

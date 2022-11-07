@@ -1,0 +1,30 @@
+{%extends 'auth/base.html'%}
+
+{%block content%}
+<center>
+    <h1>Bienvenid@</h1>
+</center>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    {% endfor %}
+
+    <br>
+
+    {% if user.is_authenticated %}
+    <h4>Has ingresado de manera correcta.</h4>
+    <h4>Ahora puedes acceder a nuevos menús en la barra de arriba.</h4>
+    <button type="submit"><a href="/signout">Cerrar Sesion</a></button>
+    {% else %}
+    <br/>
+    <h3>Inicia sesión o registrate para acceder al menú de compras.</h3>
+    <br/>
+    {% endif %}
+
+
+{% endblock %}
