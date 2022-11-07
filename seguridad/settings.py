@@ -74,22 +74,11 @@ WSGI_APPLICATION = 'seguridad.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'd988japrq3fqei',
-            'USER': 'mwmcwslhvvslrv',
-            'PASSWORD': '9198b907c00f6f6ba8cecf657ec5ff485e146123ff2a1a9d98c90842ade8e083',
-            'HOST':'ec2-44-195-132-31.compute-1.amazonaws.com',
-            'PORT': '5432',
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
